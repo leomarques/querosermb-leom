@@ -21,6 +21,7 @@ fun Navigation(modifier: Modifier = Modifier) {
     var id by remember { mutableStateOf<String?>("") }
 
     Scaffold(
+        modifier = modifier,
         topBar = {
             when (screen) {
                 LIST_SCREEN -> {
@@ -34,7 +35,6 @@ fun Navigation(modifier: Modifier = Modifier) {
                 }
             }
         },
-        modifier = modifier,
     ) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {
             when (screen) {
@@ -48,12 +48,7 @@ fun Navigation(modifier: Modifier = Modifier) {
                 }
 
                 DETAIL_SCREEN -> {
-                    DetailsScreen(
-                        id = id,
-                        onBackClick = {
-                            screen = LIST_SCREEN
-                        }
-                    )
+                    DetailsScreen(id = id)
                 }
             }
         }

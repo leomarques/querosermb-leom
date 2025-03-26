@@ -6,7 +6,8 @@ import com.querosermb.domain.model.Exchange
 
 class DetailsInteractor(private val exchangeDao: ExchangeDao) {
     suspend fun getExchange(id: String): Exchange {
-        return exchangeDao.selectExchangeById(id).toDomain()
+        val toDomain = exchangeDao.selectExchangeById(id).toDomain()
+        return toDomain
     }
 }
 

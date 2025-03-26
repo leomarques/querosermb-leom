@@ -9,13 +9,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(
-    private val id: String?,
     private val detailsInteractor: DetailsInteractor,
 ) : ViewModel() {
     private val _state = MutableStateFlow(DetailsState())
     val state = _state.asStateFlow()
 
-    init {
+    fun updateId(id: String?) {
+        _state.value = DetailsState(isLoading = true)
+
         if (id == null) {
             _state.value = DetailsState(isLoading = false)
         } else {
