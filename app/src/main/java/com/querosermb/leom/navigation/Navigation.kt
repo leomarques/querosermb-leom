@@ -1,4 +1,4 @@
-package com.querosermb.leom.ui
+package com.querosermb.leom.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -21,6 +21,19 @@ fun Navigation(modifier: Modifier = Modifier) {
     var id by remember { mutableStateOf<String?>("") }
 
     Scaffold(
+        topBar = {
+            when (screen) {
+                LIST_SCREEN -> {
+                    ListScreenTopBar()
+                }
+
+                DETAIL_SCREEN -> {
+                    DetailsScreenTopBar(id = id) {
+                        screen = LIST_SCREEN
+                    }
+                }
+            }
+        },
         modifier = modifier,
     ) { paddingValues ->
         Surface(modifier = Modifier.padding(paddingValues)) {

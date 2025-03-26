@@ -1,4 +1,4 @@
-package com.querosermb.leom.ui
+package com.querosermb.leom.misc
 
 import com.querosermb.domain.model.Exchange
 

@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.querosermb.domain.model.Exchange
-import com.querosermb.leom.ui.previewExchange
+import com.querosermb.leom.misc.previewExchange
 
 @Composable
 fun ListItem(
