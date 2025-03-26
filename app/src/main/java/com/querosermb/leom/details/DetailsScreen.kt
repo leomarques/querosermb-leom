@@ -3,6 +3,7 @@ package com.querosermb.leom.details
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -30,7 +31,11 @@ fun DetailsScreen(
         if (uiState.isLoading) {
             CircularProgressIndicator()
         } else {
-            DetailsLayout(exchange = uiState.item)
+            if (uiState.isError) {
+                Text("Something went wrong.")
+            } else {
+                DetailsLayout(exchange = uiState.item)
+            }
         }
     }
 }

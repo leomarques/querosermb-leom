@@ -2,6 +2,7 @@ package com.querosermb.leom.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.querosermb.domain.list.ListError
 import com.querosermb.domain.list.ListInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,11 +16,29 @@ class ListViewModel(private val listInteractor: ListInteractor) : ViewModel() {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            val items = listInteractor.getItems()
+            _state.update { it.copy(isLoading = true) }
+            val result = listInteractor.getItems()
             _state.update {
-                ListState(
-                    items = items,
-                    isLoading = false
+                result.fold(
+                    onSuccess = { exchanges ->
+                        ListState(
+                            items = exchanges,
+                            isLoading = false
+                        )
+                    },
+                    onFailure = { error ->
+                        ListState(
+                            isLoading = false,
+                            errorMessage =
+                                when (error) {
+                                    ListError.EmptyResponse -> "No data available."
+                                    ListError.NetworkError -> "Check your internet connection."
+                                    ListError.UnknownError -> "Something went wrong."
+                                    is ListError.ApiError -> "Server error: ${error.code}"
+                                    else -> "Something went wrong."
+                                }
+                        )
+                    }
                 )
             }
         }

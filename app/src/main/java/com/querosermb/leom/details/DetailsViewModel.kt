@@ -15,17 +15,31 @@ class DetailsViewModel(
     val state = _state.asStateFlow()
 
     fun updateId(id: String?) {
-        _state.value = DetailsState(isLoading = true)
+        _state.value = DetailsState()
 
         if (id == null) {
-            _state.value = DetailsState(isLoading = false)
+            _state.value =
+                DetailsState(
+                    isLoading = false,
+                    isError = true
+                )
         } else {
             viewModelScope.launch(Dispatchers.IO) {
-                _state.value =
-                    DetailsState(
-                        item = detailsInteractor.getExchange(id),
-                        isLoading = false
-                    )
+                val item = detailsInteractor.getExchange(id)
+                if (item == null) {
+                    _state.value =
+                        DetailsState(
+                            isLoading = false,
+                            isError = true
+                        )
+                } else {
+                    _state.value =
+                        DetailsState(
+                            item = item,
+                            isLoading = false,
+                            isError = false
+                        )
+                }
             }
         }
     }

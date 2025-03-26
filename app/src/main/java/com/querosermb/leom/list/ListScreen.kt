@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -30,14 +31,19 @@ fun ListScreen(
         if (uiState.isLoading) {
             CircularProgressIndicator()
         } else {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(uiState.items) { item ->
-                    ListItem(
-                        exchange = item,
-                        onItemClick = { onItemClick(item.exchangeId) }
-                    )
+            val errorMessage = uiState.errorMessage
+            if (errorMessage != null) {
+                Text(errorMessage)
+            } else {
+                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    items(uiState.items) { item ->
+                        ListItem(
+                            exchange = item,
+                            onItemClick = { onItemClick(item.exchangeId) }
+                        )
 
-                    HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+                        HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+                    }
                 }
             }
         }
