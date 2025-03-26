@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "querosermb-leom"
 include(":app")
- 
+include(":domain")
+include(":data")

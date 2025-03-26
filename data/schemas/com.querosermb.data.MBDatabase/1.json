@@ -1,0 +1,118 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0d78b89e2244e39a4bf11b80d1a7e371",
+    "entities": [
+      {
+        "tableName": "exchange",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`exchangeId` TEXT NOT NULL, `website` TEXT NOT NULL, `name` TEXT NOT NULL, `dataQuoteStart` TEXT NOT NULL, `dataQuoteEnd` TEXT NOT NULL, `dataOrderbookStart` TEXT NOT NULL, `dataOrderbookEnd` TEXT NOT NULL, `dataTradeStart` TEXT NOT NULL, `dataTradeEnd` TEXT NOT NULL, `dataSymbolsCount` INTEGER NOT NULL, `volume1hrsUsd` REAL NOT NULL, `volume1dayUsd` REAL NOT NULL, `volume1mthUsd` REAL NOT NULL, `rank` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "exchangeId",
+            "columnName": "exchangeId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "website",
+            "columnName": "website",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataQuoteStart",
+            "columnName": "dataQuoteStart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataQuoteEnd",
+            "columnName": "dataQuoteEnd",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataOrderbookStart",
+            "columnName": "dataOrderbookStart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataOrderbookEnd",
+            "columnName": "dataOrderbookEnd",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataTradeStart",
+            "columnName": "dataTradeStart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataTradeEnd",
+            "columnName": "dataTradeEnd",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataSymbolsCount",
+            "columnName": "dataSymbolsCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "volume1hrsUsd",
+            "columnName": "volume1hrsUsd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "volume1dayUsd",
+            "columnName": "volume1dayUsd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "volume1mthUsd",
+            "columnName": "volume1mthUsd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rank",
+            "columnName": "rank",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0d78b89e2244e39a4bf11b80d1a7e371')"
+    ]
+  }
+}

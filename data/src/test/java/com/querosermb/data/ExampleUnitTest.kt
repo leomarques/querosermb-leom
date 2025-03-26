@@ -1,7 +1,8 @@
-package com.querosermb.leom
+package com.querosermb.data
 
-import org.junit.Assert.assertEquals
 import org.junit.Test
+
+import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
