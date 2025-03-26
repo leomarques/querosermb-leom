@@ -1,6 +1,6 @@
-package com.querosermb.leom
+package com.querosermb.leom.ui
 
-import com.querosermb.domain.Exchange
+import com.querosermb.domain.model.Exchange
 
 val previewExchange =
     Exchange(

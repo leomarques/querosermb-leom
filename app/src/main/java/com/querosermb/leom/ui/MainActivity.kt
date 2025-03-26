@@ -1,4 +1,4 @@
-package com.querosermb.leom
+package com.querosermb.leom.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

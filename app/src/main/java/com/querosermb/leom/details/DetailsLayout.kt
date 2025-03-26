@@ -1,40 +1,35 @@
-package com.querosermb.leom
+package com.querosermb.leom.details
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.querosermb.domain.Exchange
+import com.querosermb.domain.model.Exchange
+import com.querosermb.leom.ui.previewExchange
 
 @Composable
-fun ListItem(
+fun DetailsLayout(
     exchange: Exchange,
-    onItemClick: () -> Unit,
+    onBackClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier =
-            modifier
-                .fillMaxWidth()
-                .clickable { onItemClick() }
-                .padding(16.dp)
-    ) {
+    Column(modifier = modifier.padding(16.dp)) {
         Text(text = "Nome: ${exchange.name}")
         Text(text = "ID: ${exchange.exchangeId}")
         Text(text = "Volume em USD em 1 dia: ${exchange.volume1dayUsd}")
+        Text(text = "Rank: ${exchange.rank}")
+        Text(text = "website: ${exchange.website}")
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun ListItemPreview() {
-    ListItem(
+private fun DetailsLayoutPreview() {
+    DetailsLayout(
         exchange = previewExchange,
-        onItemClick = {}
+        onBackClick = {}
     )
 }

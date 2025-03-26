@@ -1,4 +1,4 @@
-package com.querosermb.data
+package com.querosermb.data.http
 
 import com.google.gson.annotations.SerializedName
 

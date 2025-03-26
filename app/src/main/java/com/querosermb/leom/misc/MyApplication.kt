@@ -1,4 +1,4 @@
-package com.querosermb.leom
+package com.querosermb.leom.misc
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext

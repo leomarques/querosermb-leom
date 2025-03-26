@@ -1,4 +1,4 @@
-package com.querosermb.data
+package com.querosermb.data.http
 
 class ListRepositoryImpl(private val apiService: CoinApiService) : ListRepository {
     override suspend fun getItems(): APIResponse {

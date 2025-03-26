@@ -1,4 +1,4 @@
-package com.querosermb.data
+package com.querosermb.data.local
 
 import android.content.Context
 import androidx.room.Database

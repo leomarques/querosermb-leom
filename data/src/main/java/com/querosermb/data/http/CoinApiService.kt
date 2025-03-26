@@ -1,4 +1,4 @@
-package com.querosermb.data
+package com.querosermb.data.http
 
 import retrofit2.Response
 import retrofit2.http.GET

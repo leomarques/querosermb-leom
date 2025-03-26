@@ -1,5 +1,9 @@
-package com.querosermb.data
+package com.querosermb.data.misc
 
+import com.querosermb.data.http.CoinApiService
+import com.querosermb.data.http.ListRepository
+import com.querosermb.data.http.ListRepositoryImpl
+import com.querosermb.data.local.MBDatabase
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.factoryOf
@@ -12,6 +16,7 @@ val dataModule =
         single { MBDatabase.getInstance(get()).exchangeDao() }
         single { provideRetrofit() }
         single { provideApiService(get()) }
+
         factoryOf(::ListRepositoryImpl) { bind<ListRepository>() }
     }
 

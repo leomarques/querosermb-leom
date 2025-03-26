@@ -1,0 +1,31 @@
+package com.querosermb.leom.details
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.querosermb.domain.details.DetailsInteractor
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+
+class DetailsViewModel(
+    private val id: String?,
+    private val detailsInteractor: DetailsInteractor,
+) : ViewModel() {
+    private val _state = MutableStateFlow(DetailsState())
+    val state = _state.asStateFlow()
+
+    init {
+        if (id == null) {
+            _state.value = DetailsState(isLoading = false)
+        } else {
+            viewModelScope.launch(Dispatchers.IO) {
+                _state.value =
+                    DetailsState(
+                        item = detailsInteractor.getExchange(id),
+                        isLoading = false
+                    )
+            }
+        }
+    }
+}

@@ -1,8 +1,8 @@
-package com.querosermb.leom
+package com.querosermb.leom.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.querosermb.domain.ListInteractor
+import com.querosermb.domain.list.ListInteractor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

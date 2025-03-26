@@ -1,6 +1,6 @@
-package com.querosermb.leom
+package com.querosermb.leom.list
 
-import com.querosermb.domain.Exchange
+import com.querosermb.domain.model.Exchange
 
 data class ListState(
     val items: List<Exchange> = emptyList(),

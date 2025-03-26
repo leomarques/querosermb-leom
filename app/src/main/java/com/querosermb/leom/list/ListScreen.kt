@@ -1,4 +1,4 @@
-package com.querosermb.leom
+package com.querosermb.leom.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,7 +17,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ListScreen(
-    onItemClick: (String) -> Unit,
+    onItemClick: (String?) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ListViewModel = koinViewModel()
 ) {
