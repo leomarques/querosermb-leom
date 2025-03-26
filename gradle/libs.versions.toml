@@ -7,7 +7,8 @@ koin                  = "3.5.3"
 kotlinxCoroutinesAndroid = "1.7.3"
 kotlinxCoroutinesTest = "1.7.3"
 material3             = "1.3.1"
-mockk                 = "1.13.7"
+mockk                 = "1.13.17"
+mockkAndroid          = "1.13.17"
 navigationCompose     = "2.8.9"
 room                  = "2.6.1"
 retrofit              = "2.9.0"
@@ -25,6 +26,7 @@ core-testing            = { group = "androidx.arch.core",         name = "core-t
 compose-bom 			= { group = "androidx.compose",           name = "compose-bom", 			version.ref = "composeBom" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 material3   			= { group = "androidx.compose.material3", name = "material3", 				version.ref = "material3" }
+mockk-android           = { module = "io.mockk:mockk-android", version.ref = "mockkAndroid" }
 ui-test-junit4 	        = { group = "androidx.compose.ui",        name = "ui-test-junit4",          version.ref = "uiTest" }
 ui-test-manifest 	    = { group = "androidx.compose.ui",        name = "ui-test-manifest",        version.ref = "uiTest" }
 ui-tooling-preview 	    = { group = "androidx.compose.ui",        name = "ui-tooling-preview" }
@@ -42,9 +44,8 @@ compose-rules           = { group = "io.nlopez.compose.rules",    name = "detekt
 junit       			= { group = "junit", 					  name = "junit", 					version.ref = "junit" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", 	  name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 
-
 [bundles]
-android-test = ["ui-test-manifest", "ui-test-junit4"]
+android-test = ["ui-test-manifest", "ui-test-junit4", "mockk-android", "junit"]
 compose      = ["material3", "ui-tooling-preview", "ui-tooling", "navigation-compose"]
 network      = ["retrofit-converter-gson", "retrofit"]
 room         = ["room-ktx", "room-runtime"]
