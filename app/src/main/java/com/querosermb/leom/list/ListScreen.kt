@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import org.koin.androidx.compose.koinViewModel
 
@@ -29,11 +30,14 @@ fun ListScreen(
         contentAlignment = Alignment.Center
     ) {
         if (uiState.isLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(modifier = Modifier.testTag("loading"))
         } else {
             val errorMessage = uiState.errorMessage
             if (errorMessage != null) {
-                Text(errorMessage)
+                Text(
+                    text = errorMessage,
+                    modifier = Modifier.testTag("error")
+                )
             } else {
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(uiState.items) { item ->

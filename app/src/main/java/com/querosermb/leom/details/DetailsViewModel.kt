@@ -2,14 +2,14 @@ package com.querosermb.leom.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.querosermb.domain.details.DetailsUseCaseImpl
+import com.querosermb.domain.details.DetailsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(
-    private val detailsUseCaseImpl: DetailsUseCaseImpl,
+    private val detailsUseCase: DetailsUseCase,
 ) : ViewModel() {
     private val _state = MutableStateFlow(DetailsState())
     val state = _state.asStateFlow()
@@ -25,7 +25,7 @@ class DetailsViewModel(
                 )
         } else {
             viewModelScope.launch(Dispatchers.IO) {
-                val item = detailsUseCaseImpl.getExchange(id)
+                val item = detailsUseCase.getExchange(id)
                 if (item == null) {
                     _state.value =
                         DetailsState(

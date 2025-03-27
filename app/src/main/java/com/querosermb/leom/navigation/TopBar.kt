@@ -11,6 +11,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.querosermb.leom.R
 
@@ -18,7 +19,7 @@ import com.querosermb.leom.R
 fun ListScreenTopBar(modifier: Modifier = Modifier) {
     MyTopBar(
         text = stringResource(R.string.list_topbar),
-        modifier = modifier
+        modifier = modifier.testTag("listTopBar")
     )
 }
 
@@ -29,10 +30,13 @@ fun DetailsScreenTopBar(
     onBack: () -> Unit
 ) {
     MyTopBar(
-        modifier = modifier,
+        modifier = modifier.testTag("detailsTopBar"),
         text = stringResource(R.string.exchange_topbar, id.toString()),
         navigationIcon = {
-            IconButton(onClick = onBack) {
+            IconButton(
+                onClick = onBack,
+                modifier = Modifier.testTag("backIcon")
+            ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(R.string.back_desc)
