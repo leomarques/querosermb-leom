@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.querosermb.leom.navigation
 
 import androidx.compose.material.icons.Icons
@@ -19,7 +17,7 @@ import com.querosermb.leom.R
 @Composable
 fun ListScreenTopBar(modifier: Modifier = Modifier) {
     MyTopBar(
-        text = "Lista de Exchanges",
+        text = stringResource(R.string.list_topbar),
         modifier = modifier
     )
 }
@@ -32,7 +30,7 @@ fun DetailsScreenTopBar(
 ) {
     MyTopBar(
         modifier = modifier,
-        text = "Exchange: $id",
+        text = stringResource(R.string.exchange_topbar, id.toString()),
         navigationIcon = {
             IconButton(onClick = onBack) {
                 Icon(
@@ -44,6 +42,7 @@ fun DetailsScreenTopBar(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTopBar(
     text: String,

@@ -11,15 +11,15 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class DetailsInteractorTest {
+class DetailsUseCaseImplTest {
 
     private lateinit var exchangeDao: ExchangeDao
-    private lateinit var detailsInteractor: DetailsInteractor
+    private lateinit var detailsUseCaseImpl: DetailsUseCaseImpl
 
     @Before
     fun setUp() {
         exchangeDao = mockk()
-        detailsInteractor = DetailsInteractor(exchangeDao)
+        detailsUseCaseImpl = DetailsUseCaseImpl(exchangeDao)
     }
 
     @Test
@@ -30,7 +30,7 @@ class DetailsInteractorTest {
 
         coEvery { exchangeDao.selectExchangeById(id) } returns exchangeEntity
 
-        val result = detailsInteractor.getExchange(id)
+        val result = detailsUseCaseImpl.getExchange(id)
 
         assertEquals(exchange, result)
         coVerify { exchangeDao.selectExchangeById(id) }
@@ -42,7 +42,7 @@ class DetailsInteractorTest {
 
         coEvery { exchangeDao.selectExchangeById(id) } returns null
 
-        val result = detailsInteractor.getExchange(id)
+        val result = detailsUseCaseImpl.getExchange(id)
 
         assertEquals(null, result)
         coVerify { exchangeDao.selectExchangeById(id) }

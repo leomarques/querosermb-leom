@@ -13,17 +13,17 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
-class ListInteractorTest {
+class ListUseCaseImplTest {
 
     private lateinit var listRepository: ListRepository
     private lateinit var exchangeDao: ExchangeDao
-    private lateinit var listInteractor: ListInteractor
+    private lateinit var listUseCaseImpl: ListUseCaseImpl
 
     @Before
     fun setUp() {
         listRepository = mockk()
         exchangeDao = mockk()
-        listInteractor = ListInteractor(listRepository, exchangeDao)
+        listUseCaseImpl = ListUseCaseImpl(listRepository, exchangeDao)
     }
 
     @Test
@@ -48,7 +48,7 @@ class ListInteractorTest {
         coEvery { listRepository.getItems() } returns Result.success(exchangesAPIResponse)
         coEvery { exchangeDao.insert(any()) } returns Unit
 
-        val result = listInteractor.getItems()
+        val result = listUseCaseImpl.getItems()
 
         assertTrue(result.isSuccess)
         assertEquals(1, result.getOrNull()?.size)
@@ -61,7 +61,7 @@ class ListInteractorTest {
 
         coEvery { listRepository.getItems() } returns Result.success(exchangesAPIResponse)
 
-        val result = listInteractor.getItems()
+        val result = listUseCaseImpl.getItems()
 
         assertTrue(result.isFailure)
         assertEquals(ListError.EmptyResponse, result.exceptionOrNull())
@@ -74,7 +74,7 @@ class ListInteractorTest {
 
         coEvery { listRepository.getItems() } returns Result.failure(networkException)
 
-        val result = listInteractor.getItems()
+        val result = listUseCaseImpl.getItems()
 
         assertTrue(result.isFailure)
         assertEquals(ListError.NetworkError, result.exceptionOrNull())
@@ -87,7 +87,7 @@ class ListInteractorTest {
 
         coEvery { listRepository.getItems() } returns Result.failure(apiException)
 
-        val result = listInteractor.getItems()
+        val result = listUseCaseImpl.getItems()
 
         assertTrue(result.isFailure)
         assertEquals(ListError.ApiError(404), result.exceptionOrNull())
@@ -100,7 +100,7 @@ class ListInteractorTest {
 
         coEvery { listRepository.getItems() } throws exception
 
-        val result = listInteractor.getItems()
+        val result = listUseCaseImpl.getItems()
 
         assertTrue(result.isFailure)
         assertEquals(ListError.UnknownError, result.exceptionOrNull())

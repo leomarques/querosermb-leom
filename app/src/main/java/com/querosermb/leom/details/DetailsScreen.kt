@@ -34,7 +34,7 @@ fun DetailsScreen(
             CircularProgressIndicator()
         } else {
             if (uiState.isError) {
-                Text(stringResource(R.string.wrong))
+                Text(stringResource(R.string.unknown_error))
             } else {
                 DetailsLayout(exchange = uiState.item)
             }

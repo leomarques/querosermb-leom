@@ -13,6 +13,8 @@
     <string name="trade_end">Trade end: %1$s</string>
     <string name="quote_start">Quote start: %1$s</string>
     <string name="quote_end">Quote end: %1$s</string>
-    <string name="wrong">Something went wrong.</string>
+    <string name="unknown_error">Something went wrong.</string>
     <string name="back_desc">Navigate up</string>
+    <string name="list_topbar">Exchanges List</string>
+    <string name="exchange_topbar">Exchange: %1$s</string>
 </resources>

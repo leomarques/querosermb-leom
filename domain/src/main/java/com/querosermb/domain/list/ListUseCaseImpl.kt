@@ -7,11 +7,11 @@ import com.querosermb.domain.model.Exchange
 import com.querosermb.domain.model.toDomain
 import com.querosermb.domain.model.toExchangeEntity
 
-class ListInteractor(
+class ListUseCaseImpl(
     private val listRepository: ListRepository,
     private val exchangeDao: ExchangeDao
-) {
-    suspend fun getItems(): Result<List<Exchange>> {
+) : ListUseCase {
+    override suspend fun getItems(): Result<List<Exchange>> {
         return try {
             val result = listRepository.getItems()
 

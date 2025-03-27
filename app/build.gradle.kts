@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.querosermb.leom.InstrumentationTestRunner"
     }
 
     buildTypes {
@@ -72,6 +72,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.runner)
     detektPlugins(libs.compose.rules)
     androidTestImplementation(libs.bundles.android.test)
     testImplementation(libs.bundles.test)

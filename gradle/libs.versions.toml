@@ -20,6 +20,7 @@ detekt                  = "1.23.6"
 googleDevtoolsKsp       = "1.9.24-1.0.20"
 jetbrainsKotlinAndroid  = "1.9.24"
 jlleitschuhGradleKtlint = "12.1.0"
+runner                  = "1.6.2"
 
 [libraries]
 core-testing            = { group = "androidx.arch.core",         name = "core-testing", 			version.ref = "coreTesting" }
@@ -35,10 +36,11 @@ navigation-compose 	    = { group = "androidx.navigation",        name = "naviga
 room-compiler      	    = { group = "androidx.room",              name = "room-compiler", 			version.ref = "room" }
 room-ktx    			= { group = "androidx.room", 			  name = "room-ktx", 				version.ref = "room" }
 room-runtime       	    = { group = "androidx.room", 			  name = "room-runtime", 			version.ref = "room" }
+runner                  = { group = "androidx.test",              name = "runner", version.ref = "runner" }
 koin-androidx-compose   = { group = "io.insert-koin",             name = "koin-androidx-compose", 	version.ref = "koin" }
 koin-core               = { group = "io.insert-koin",             name = "koin-core", 	            version.ref = "koin" }
-retrofit-converter-gson = { group = "com.squareup.retrofit2",    name = "converter-gson",          version.ref = "retrofit" }
-retrofit                = { group = "com.squareup.retrofit2",    name = "retrofit",                version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2",     name = "converter-gson",          version.ref = "retrofit" }
+retrofit                = { group = "com.squareup.retrofit2",     name = "retrofit",                version.ref = "retrofit" }
 mockk       			= { group = "io.mockk", 				  name = "mockk", 					version.ref = "mockk" }
 compose-rules           = { group = "io.nlopez.compose.rules",    name = "detekt",                  version.ref = "composeRules" }
 junit       			= { group = "junit", 					  name = "junit", 					version.ref = "junit" }

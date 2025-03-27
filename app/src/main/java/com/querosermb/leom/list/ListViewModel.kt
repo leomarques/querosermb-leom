@@ -3,21 +3,21 @@ package com.querosermb.leom.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.querosermb.domain.list.ListError
-import com.querosermb.domain.list.ListInteractor
+import com.querosermb.domain.list.ListUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class ListViewModel(private val listInteractor: ListInteractor) : ViewModel() {
+class ListViewModel(private val listUseCase: ListUseCase) : ViewModel() {
     private val _state = MutableStateFlow(ListState())
     val state = _state.asStateFlow()
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             _state.update { it.copy(isLoading = true) }
-            val result = listInteractor.getItems()
+            val result = listUseCase.getItems()
             _state.update {
                 result.fold(
                     onSuccess = { exchanges ->
