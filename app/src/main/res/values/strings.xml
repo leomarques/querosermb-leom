@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Querosermb</string>
+    <string name="name">Name: %1$s</string>
+    <string name="id">ID: %1$s</string>
+    <string name="website">Website: %1$s</string>
+    <string name="rank">Rank: %1$s</string>
+    <string name="volume_em_usd_em_1_hora">Volume USD 1 hour: %1$s</string>
+    <string name="volume_em_usd_em_1_dia">Volume USD 1 day: %1$s</string>
+    <string name="volume_em_usd_em_1_m_s">Volume USD 1 month: %1$s</string>
+    <string name="orderbook_start">Orderbook start: %1$s</string>
+    <string name="orderbook_end">Orderbook end: %1$s</string>
+    <string name="trade_start">Trade start: %1$s</string>
+    <string name="trade_end">Trade end: %1$s</string>
+    <string name="quote_start">Quote start: %1$s</string>
+    <string name="quote_end">Quote end: %1$s</string>
+    <string name="wrong">Something went wrong.</string>
+    <string name="back_desc">Navigate up</string>
 </resources>

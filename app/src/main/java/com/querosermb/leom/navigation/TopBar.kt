@@ -13,6 +13,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.querosermb.leom.R
 
 @Composable
 fun ListScreenTopBar(modifier: Modifier = Modifier) {
@@ -35,7 +37,7 @@ fun DetailsScreenTopBar(
             IconButton(onClick = onBack) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Navigate up"
+                    contentDescription = stringResource(R.string.back_desc)
                 )
             }
         },

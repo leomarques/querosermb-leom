@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.querosermb.domain.model.Exchange
+import com.querosermb.leom.R
 import com.querosermb.leom.misc.previewExchange
 
 @Composable
@@ -25,9 +27,9 @@ fun ListItem(
                 .clickable { onItemClick() }
                 .padding(16.dp)
     ) {
-        Text(text = "Nome: ${exchange.name}")
-        Text(text = "ID: ${exchange.exchangeId}")
-        Text(text = "Volume em USD em 1 dia: ${exchange.volume1dayUsd}")
+        Text(text = stringResource(R.string.name, exchange.name.orEmpty()))
+        Text(text = stringResource(R.string.id, exchange.exchangeId.orEmpty()))
+        Text(text = stringResource(R.string.volume_em_usd_em_1_dia, exchange.volume1dayUsd.toString()))
     }
 }
 

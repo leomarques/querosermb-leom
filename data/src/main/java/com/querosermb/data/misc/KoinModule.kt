@@ -1,5 +1,6 @@
 package com.querosermb.data.misc
 
+import com.querosermb.data.BuildConfig
 import com.querosermb.data.http.CoinApiService
 import com.querosermb.data.http.ListRepository
 import com.querosermb.data.http.ListRepositoryImpl
@@ -22,6 +23,12 @@ val dataModule =
 
 private fun provideRetrofit(): Retrofit {
     val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder()
+                    .header("X-CoinAPI-Key", BuildConfig.API_KEY).build()
+            )
+        }
         .build()
 
     return Retrofit.Builder()
