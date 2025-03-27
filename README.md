@@ -32,6 +32,22 @@ API_KEY=your_coinapi_key_here
 adb shell am start -n com.querosermb.leom/.misc.MainActivity
 ```
 
+## Running Tests
+
+### Unit Tests
+To run unit tests, execute:
+```sh
+./gradlew testDebugUnitTest
+```
+
+### UI Tests (Instrumented Tests)
+To run UI tests on an emulator or device:
+```sh
+./gradlew connectedDebugAndroidTest
+```
+Ensure an emulator or physical device is connected before running UI tests.
+
 ## Additional Notes
 - Ensure the API key is valid; otherwise, network requests to CoinAPI will fail.
 - Do not commit `local.properties` to version control to keep credentials safe.
+
